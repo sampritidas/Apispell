@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.cell-holder {
+  height: 350px;
+  width: 300px;
+  background-color: rgb(252, 255, 240);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+}
+
+.cell {
+  height: 90px;
+  width: 90px;
+  border: 2px solid black;
+  display: inline-block;
+}
+
+.side-row {
+  display: flex;
+  column-gap: 4px;
+}
