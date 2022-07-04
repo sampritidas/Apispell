@@ -21,5 +21,11 @@
 
 .side-row {
   display: flex;
+  justify-content: center;
   column-gap: 4px;
+}
+
+.update-button {
+  width: 120px;
+  height: 20px;
 }
