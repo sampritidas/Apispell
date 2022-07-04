@@ -4,6 +4,7 @@
 }
 
 .cell-holder {
+  padding: 20px;
   height: 350px;
   width: 300px;
   background-color: rgb(252, 255, 240);
