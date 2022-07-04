@@ -1,5 +1,6 @@
 const isValidWord = (word) => {
-  const words = fs.readFileSync('/usr/share/dict/words', 'utf8');
+  // const words = fs.readFileSync('/usr/share/dict/words', 'utf8');
+  const words = ['DEEP', 'DEPT', 'RIDER'];
   return words.includes(word);
 }
 
@@ -39,6 +40,7 @@ const main = () => {
   const cells = document.getElementsByClassName('cell');
 
   for (let cell of cells) {
+    console.log(cells);
     cell.addEventListener('click', entertext);
   }
 };
