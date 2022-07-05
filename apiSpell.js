@@ -1,10 +1,20 @@
+const isGuessedBefore = (lists, word) => {
+  console.log(lists);
+  for (let list of lists) {
+    if (list.innerText === word) {
+      return true;
+    }
+  }
+  return false;
+};
+
 const updateCGlist = (guessWord) => {
   console.log('updateCGlist');
   const cgList = document.getElementsByClassName('cg');
   console.log(cgList.length);
 
   for (let index = 0; index < cgList.length; index++) {
-    if (!cgList[index].innerText) {
+    if (!cgList[index].innerText && !isGuessedBefore(cgList, guessWord)) {
       cgList[index].innerText = guessWord;
       return;
     }

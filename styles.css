@@ -13,6 +13,10 @@
   justify-content: space-evenly;
 }
 
+.center {
+  background-color: rgb(216, 175, 71);
+}
+
 .cell {
   height: 90px;
   width: 90px;
