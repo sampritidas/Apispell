@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <div class="heading">APISPELL</div>
   <div class="cell-holder">
     <div class="side-row">
       <div id="1" class="cell">I</div>
@@ -32,11 +33,23 @@
 
   <div class="update-button-holder">
     <button class="update-button" id="delete-button"
-      onclick="deleteLast()">Delete</button>
+      onclick="deleteText()">Delete</button>
     <button class="update-button" id="enter-button"
       onclick="validateGuess()">Enter</button>
   </div>
 
+  <div class="correct-word">
+    <h2>Correct guess</h2>
+    <ul>
+      <li class="cg"></li>
+      <li class="cg"></li>
+      <li class="cg"></li>
+      <li class="cg"></li>
+      <li class="cg"></li>
+      <li class="cg"></li>
+      <li class="cg"></li>
+    </ul>
+  </div>
 </body>
 
 </html>
