@@ -6,50 +6,70 @@
   </title>
   <link rel="stylesheet" href="styles.css">
   <script src="apiSpell.js"></script>
+  <script src="src/action.js"></script>
+  <script src="src/validation.js"></script>
+  <script src="src/updation.js"></script>
 </head>
 
 <body>
-  <div class="heading">APISPELL</div>
-  <div class="cell-holder">
-    <div class="side-row">
-      <div id="1" class="cell">I</div>
-      <div id="2" class="cell">T</div>
-    </div>
-    <div class="middle-row">
-      <div id="3" class="cell">R</div>
-      <div id="center" class="cell center">D</div>
-      <div id="5" class="cell">P</div>
-    </div>
-    <div class="side-row">
-      <div id="6" class="cell">J</div>
-      <div id="7" class="cell">E</div>
-    </div>
-  </div>
 
-  <div>
-    <label>Guess Word</label>
-    <input type="text" name="guess-word" id="guess-word">
-  </div>
+  <header>
+    <div class="heading">APISPELL</div>
+  </header>
 
-  <div class="update-button-holder">
-    <button class="update-button" id="delete-button"
-      onclick="deleteText()">Delete</button>
-    <button class="update-button" id="enter-button"
-      onclick="validateGuess()">Enter</button>
-  </div>
+  <main>
 
-  <div class="correct-word">
-    <h2>Correct guess</h2>
-    <ul>
-      <li class="cg"></li>
-      <li class="cg"></li>
-      <li class="cg"></li>
-      <li class="cg"></li>
-      <li class="cg"></li>
-      <li class="cg"></li>
-      <li class="cg"></li>
-    </ul>
-  </div>
+
+    <div class="">
+
+      <div class="cell-holder">
+        <div class="side-row">
+          <div id="1" class="cell">I</div>
+          <div id="2" class="cell">T</div>
+        </div>
+        <div class="middle-row">
+          <div id="3" class="cell">R</div>
+          <div id="center" class="cell center">D</div>
+          <div id="5" class="cell">P</div>
+        </div>
+        <div class="side-row">
+          <div id="6" class="cell">J</div>
+          <div id="7" class="cell">E</div>
+        </div>
+      </div>
+
+
+      <div class="updation">
+        <label>Guess Word</label>
+        <input type="text" name="guess-word" id="guess-word">
+        <div class="update-button-holder">
+          <button class="update-button" id="delete-button">Delete</button>
+          <button class="update-button" id="enter-button">Enter</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="display">
+      <div class="correct-word">
+        <h2>Correct guess</h2>
+        <ul>
+          <li class="cg"></li>
+          <li class="cg"></li>
+          <li class="cg"></li>
+          <li class="cg"></li>
+          <li class="cg"></li>
+          <li class="cg"></li>
+          <li class="cg"></li>
+        </ul>
+      </div>
+      <div class="display-total">
+        <label> TOTAL </label>
+        <div class="total"></div>
+      </div>
+    </div>
+  </main>
+
 </body>
 
 </html>

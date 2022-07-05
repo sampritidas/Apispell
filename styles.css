@@ -3,6 +3,12 @@
   padding: 0;
 }
 
+main {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
 .cell-holder {
   padding: 20px;
   height: 350px;
@@ -34,4 +40,28 @@
 .update-button {
   width: 120px;
   height: 20px;
+}
+
+ul {
+  margin-left: 20px;
+}
+
+.cg {
+  padding: 5px;
+  width: 90px;
+  height: 30px;
+  border-bottom: 2px solid black;
+}
+
+.display-total {
+  padding: 10px;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.total {
+  background-color: bisque;
+  display: inline-block;
+  height: 30px;
+  width: 70px;
 }

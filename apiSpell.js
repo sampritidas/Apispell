@@ -1,70 +1,107 @@
-const isGuessedBefore = (lists, word) => {
-  console.log(lists);
-  for (let list of lists) {
-    if (list.innerText === word) {
-      return true;
-    }
-  }
-  return false;
-};
-
-const updateCGlist = (guessWord) => {
-  console.log('updateCGlist');
+const showCGlist = (guesses) => {
   const cgList = document.getElementsByClassName('cg');
-  console.log(cgList.length);
-
-  for (let index = 0; index < cgList.length; index++) {
-    if (!cgList[index].innerText && !isGuessedBefore(cgList, guessWord)) {
-      cgList[index].innerText = guessWord;
-      return;
-    }
+  for (let index = 0; index < guesses.length; index++) {
+    cgList[index].innerText = guesses[index];
   }
 };
 
-const isValidWord = (word) => {
-  // const words = fs.readFileSync('/usr/share/dict/words', 'utf8');
-  const words = ['DEEP', 'DEPT', 'RIDER'];
-  return words.includes(word);
+const sum = (a, b) => a + b;
+
+const showTotal = (total) => {
+  const totalBox = document.getElementsByClassName('total')[0];
+  totalBox.innerText = total;
 };
 
-const scoreUpdate = (guessWord) => {
-  if (isValidWord(guessWord)) {
-    updateCGlist(guessWord);
-    return;
-  }
-  // popupInvalidMessage();
-  console.log('not a valid word');
+const updateTotal = (game) => {
+  const total = game.stats.reduce(sum, 0);
+  game.total = total;
+  return total;
 };
 
-const validateGuess = () => {
-  const centerLetter = document.getElementById('center').innerText;
-  const guessWord = (document.getElementById('guess-word').value).toUpperCase();
-
-  if (guessWord.includes(centerLetter)) {
-    scoreUpdate(guessWord);
-    return;
-  }
-  console.log('no');
+const updateStats = (game) => {
+  const currentGuess = game.correctGuesses;
+  const currentGuessLength = currentGuess[currentGuess.length - 1].length;
+  const currentScore = game.scoreOnLength[currentGuessLength];
+  game.stats.push(currentScore);
 };
 
-const deleteText = () => {
+const resetGuessBox = () => {
+  const guessBox = document.getElementById('guess-word');
+  guessBox.value = '';
+};
+
+const resetGuessedWord = (game) => {
+  game.guessedWord.length = 0;
+};
+
+const updateCGlist = (game) => {
+  game.correctGuesses.push(game.guessedWord.join(''));
+  resetGuessedWord(game);
+  console.log(game.guessedWord);
+};
+
+const addWord = (game, letter) => {
+  game.guessedWord.push(letter);
+  return game.guessedWord.join('');
+}
+
+const validateGuess = (game) => {
+  return game.guessedWord.includes(game.centerLetter) &&
+    !game.correctGuesses.includes(game.guessedWord.join('')) &&
+    game.validWords.includes(game.guessedWord.join(''))
+};
+
+const deleteLetter = (game) => {
+  game.guessedWord.pop();
+  return game.guessedWord.join('');
+}
+
+const showText = (text) => {
   const guessWord = document.getElementById('guess-word');
-  guessWord.value = guessWord.value.slice(0, - 1);
+  guessWord.value = text;
 };
 
-const entertext = (event) => {
-  if (event.path[0].classList.contains('cell')) {
-    const guessBox = document.getElementById('guess-word');
-    const letter = event.target.innerText;
-    guessBox.value += letter;
-  }
-  return;
-};
+const takeInput = (event) => {
+  return event.target.innerText;
+}
 
 const main = () => {
-  // const letters = [{ id: '1', letter: 'a' }]
+  const game = {
+    surroundLetters: ['I', 'T', 'R', 'P', 'J', 'E'],
+    centerLetter: 'D',
+    guessedWord: [],
+    correctGuesses: [],
+    stats: [],
+    total: '',
+    scoreOnLength: { '3': 1, '4': 3, '5': 7, '6': 9, '7': 11 },
+    validWords: ['DEEP', 'DEPT', 'RIDER'],
+  };
+
   const cellHolder = document.getElementsByClassName('cell-holder')[0];
-  cellHolder.addEventListener('click', entertext);
+  cellHolder.addEventListener('click', (event) => {
+    const letter = takeInput(event);
+    const word = addWord(game, letter);
+    showText(word);
+  });
+
+  const guessValidator = document.getElementById('enter-button');
+  guessValidator.addEventListener('click', (event) => {
+    if (validateGuess(game)) {
+      updateCGlist(game);
+      showCGlist(game.correctGuesses);
+      updateStats(game);
+      const total = updateTotal(game);
+      showTotal(total);
+      resetGuessBox();
+    };
+  })
+
+  const deleteTextControl = document.getElementById('delete-button');
+  deleteTextControl.addEventListener('click', (event) => {
+    const updatedText = deleteLetter(game);
+    showText(updatedText);
+  })
+
 };
 
 window.onload = main;
