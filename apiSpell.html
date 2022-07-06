@@ -4,44 +4,67 @@
   <title>
     Apispell
   </title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="apiSpell.js"></script>
-  <script src="src/action.js"></script>
-  <script src="src/validation.js"></script>
-  <script src="src/updation.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/hexaStyles.css">
+  <script src="src/apiSpell.js"></script>
 </head>
 
 <body>
 
   <header>
     <div class="heading">APISPELL</div>
+    <nav>
+      <ul>
+        <li>STATS</li>
+        <li>RULES</li>
+        <li>RANKING</li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-
-
-    <div class="">
+    <div class="game">
 
       <div class="cell-holder">
-        <div class="side-row">
-          <div id="1" class="cell">I</div>
-          <div id="2" class="cell">T</div>
+        <div class="H1">
+          <div class="cell back1"></div>
+          <div class="cell back2"></div>
+          <div class="cell front">I</div>
         </div>
-        <div class="middle-row">
-          <div id="3" class="cell">R</div>
-          <div id="center" class="cell center">D</div>
-          <div id="5" class="cell">P</div>
+        <div class="H2">
+          <div class="cell back1"></div>
+          <div class="cell back2"></div>
+          <div class="cell front">T</div>
         </div>
-        <div class="side-row">
-          <div id="6" class="cell">J</div>
-          <div id="7" class="cell">E</div>
+        <div class="H3">
+          <div class="cell back1"></div>
+          <div class="cell back2"></div>
+          <div class="cell front">R</div>
+        </div>
+        <div class="H4">
+          <div class="cell back1"></div>
+          <div class="cell back2"></div>
+          <div class="cell center front">D</div>
+        </div>
+        <div class="H5">
+          <div class="cell back1"></div>
+          <div class="cell back2"></div>
+          <div class="cell front">P</div>
+        </div>
+        <div class="H6">
+          <div class="cell back1"></div>
+          <div class="cell back2"></div>
+          <div class="cell front">J</div>
+        </div>
+        <div class="H7">
+          <div class="cell back1"></div>
+          <div class="cell back2"></div>
+          <div class="cell front">E</div>
         </div>
       </div>
 
-
       <div class="updation">
-        <label>Guess Word</label>
-        <input type="text" name="guess-word" id="guess-word">
+        <input type="text" name="guess-word" id="guess-word" class="guess-word">
         <div class="update-button-holder">
           <button class="update-button" id="delete-button">Delete</button>
           <button class="update-button" id="enter-button">Enter</button>
@@ -50,9 +73,9 @@
     </div>
 
 
-    <div class="display">
+    <div class="score">
       <div class="correct-word">
-        <h2>Correct guess</h2>
+        <h2>Correct guesses</h2>
         <ul>
           <li class="cg"></li>
           <li class="cg"></li>
@@ -64,7 +87,7 @@
         </ul>
       </div>
       <div class="display-total">
-        <label> TOTAL </label>
+        <label class="total-label"> TOTAL </label>
         <div class="total"></div>
       </div>
     </div>

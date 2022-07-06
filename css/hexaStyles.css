@@ -1,0 +1,97 @@
+.cell-holder {
+  height: 335px;
+  width: 362px;
+  position: relative;
+  background-color: #faf8b9;
+}
+
+.H1 {
+  top: 25px;
+  left: 84px;
+  position: absolute;
+  height: 115px;
+  width: 100px;
+}
+
+.H2 {
+  top: 25px;
+  left: 207px;
+  position: absolute;
+  height: 115px;
+  width: 100px;
+}
+
+.H3 {
+  top: 129px;
+  left: 20px;
+  position: absolute;
+  height: 115px;
+  width: 100px;
+}
+
+.H4 {
+  top: 129px;
+  left: 146px;
+  position: absolute;
+  height: 115px;
+  width: 100px;
+}
+
+.H5 {
+  top: 129px;
+  left: 271px;
+  position: absolute;
+  height: 115px;
+  width: 100px;
+}
+
+.H6 {
+  top: 233px;
+  left: 84px;
+  position: absolute;
+  height: 115px;
+  width: 100px;
+}
+
+.H7 {
+  top: 233px;
+  left: 209px;
+  position: absolute;
+  height: 115px;
+  width: 100px;
+}
+
+.front {
+  top: 25.33px;
+  left: 0;
+  position: absolute;
+  width: 100px;
+  height: 63px;
+  /* border: 1px solid rgb(193, 135, 19); */
+  background-color: rgb(251 212 132);
+  border-radius: 10px;
+}
+
+.back1 {
+  top: 25.33px;
+  left: 0;
+  position: absolute;
+  width: 100px;
+  height: 63px;
+  border: 1px solid rgb(83, 60, 14);
+  background-color: rgb(255, 204, 102);
+  transform: rotate(60deg);
+  border-radius: 10px;
+}
+
+.back2 {
+  top: 25.33px;
+  left: 0;
+  position: absolute;
+  width: 100px;
+  height: 63px;
+  border: 0px solid rgb(193, 135, 19);
+  background-color: rgb(255, 204, 102);
+  transform: rotate(-60deg);
+  border-radius: 10px;
+}
