@@ -42,9 +42,9 @@
           <div class="cell front">R</div>
         </div>
         <div class="H4">
-          <div class="cell back1"></div>
-          <div class="cell back2"></div>
-          <div class="cell center front">D</div>
+          <div class="cell back1 center"></div>
+          <div class="cell back2 center"></div>
+          <div class="cell front center">D</div>
         </div>
         <div class="H5">
           <div class="cell back1"></div>
@@ -64,11 +64,20 @@
       </div>
 
       <div class="updation">
-        <input type="text" name="guess-word" id="guess-word" class="guess-word">
+
+        <div id='display-error' class="display-error"></div>
+
+        <div>
+          <input type="text" name="guess-word" id="guess-word"
+            class="guess-word">
+        </div>
+
+
         <div class="update-button-holder">
           <button class="update-button" id="delete-button">Delete</button>
           <button class="update-button" id="enter-button">Enter</button>
         </div>
+
       </div>
     </div>
 

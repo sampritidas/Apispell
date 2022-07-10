@@ -18,9 +18,10 @@ class Apishell {
   }
 
   isValidGuess() {
-    return this.guessedWord.includes(this.centerLetter) &&
-      !this.correctGuesses.includes(this.guessedWord.join('')) &&
-      this.validWords.includes(this.guessedWord.join(''))
+    const guessWord = this.guessedWord.join('');
+    return guessWord.includes(this.centerLetter) &&
+      !this.correctGuesses.includes(guessWord) &&
+      this.validWords.includes(this.guessedWord.join('')) && guessWord.length > 3;
   };
 
   resetGuessedWord() {
@@ -54,7 +55,31 @@ class Apishell {
     this.guessedWord.pop();
     return this.guessedWord.join('');
   }
+
+  decideError() {
+    const word = this.guessedWord.join('');
+    this.resetGuessedWord();
+
+    if (!word.includes(this.centerLetter)) {
+      return `Missing center letter`;
+    }
+    console.log('len', word.length);
+    if (word.length <= 3) {
+      return `Too short`;
+    }
+    if (!this.validWords.includes(word)) {
+      return `Not in list`;
+    }
+  }
 }
+
+const showError = (error) => {
+  const displayErrorElement = document.getElementById('display-error');
+  displayErrorElement.innerText = error;
+  setTimeout(() => {
+    displayErrorElement.innerText = '';
+  }, 2000);
+};
 
 const showCGlist = (guesses) => {
   const cgList = document.getElementsByClassName('cg');
@@ -104,7 +129,11 @@ const main = () => {
       const total = game.updateTotal();
       showTotal(total);
       resetGuessBox();
+      return;
     };
+    const error = game.decideError();
+    showError(error);
+    resetGuessBox();
   })
 
   const deleteTextControl = document.getElementById('delete-button');
